@@ -1,0 +1,11 @@
+<% @notes.each do |note| %>
+<div>
+  <%= link_to note_path(note.id) do %>
+    <%= attachment_image_tag note, :image %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>タイトル：<%= note.title %></p>
+  <p>本文：<%= note.body %></p>
+  <p>ユーザーネーム：<%= note.user.name %></p>
+</div>
+<% end %>
