@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   
   
   def index
-    @notes = Note.all
+    @notes = Note.page(params[:page]).reverse_order
   end
   
   def new
@@ -18,6 +18,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy

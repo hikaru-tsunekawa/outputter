@@ -7,5 +7,7 @@
   <p>タイトル：<%= note.title %></p>
   <p>本文：<%= note.body %></p>
   <p>ユーザーネーム：<%= note.user.name %></p>
+  <p><%= link_to "#{note.comments.count} コメント", note_path(note.id) %></p>
 </div>
 <% end %>
+<%= paginate @notes %>

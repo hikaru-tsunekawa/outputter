@@ -7,4 +7,38 @@
   <% if @note.user == current_user %>
     <%= link_to "削除", note_path(@note), method: :delete %>
   <% end %>
+  <% if @note.favorited_by?(current_user) %>
+    <p>
+      <%= link_to note_favorites_path(@note), method: :delete do %>
+        ♥<%= @note.favorites.count %>いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to note_favorites_path(@note), method: :post do %>
+        ♡<%= @note.favorites.count %>いいね
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<div class="comments">
+  <p>コメント件数：<%= @note.comments.count %></p>
+  <% @note.comments.each do |comment| %>
+    <p><%= image_tag('sample-author1.jpg') %></p>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <div class="comment-delete">
+        <%= link_to "削除", note_comment_path(comment.note, comment), method: :delete %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="new-comment">
+  <%= form_with(model:[@note, @comment], local: true) do |f| %>
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+    <%= f.submit "送信" %>
+  <% end %>
 </div>
