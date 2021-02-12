@@ -12,8 +12,11 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
-    @note.save
-    redirect_to notes_path
+    if @note.save
+      redirect_to notes_path
+    else
+      render :new
+    end
   end
 
   def show
