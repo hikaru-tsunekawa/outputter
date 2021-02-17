@@ -1,27 +1,47 @@
-<div class="card-list-containar py-5">
-  <% notes.each do |note| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to note_path(note.id) do %>
-      <%= attachment_image_tag note, :image, class:"card-img-top"; %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-          <%= attachment_image_tag note.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+<div class="containar p-5">
+  <div class="card-deck row-eq-height ">
+    <% notes.each do |note| %>
+      <div class="col-md-3">
+        <div class="card ">
+          <%= link_to note_path(note.id) do %>
+            <%= attachment_image_tag note, :image, :fill, 1000, 500, class:"card-img-top img-responsive" %>
+          <% end %>
+          <div class="card-body">
+            <div class-"row">
+              <div class="col-10">
+                <p class="card-title">
+                  <%= link_to(note_path(note.id), class:"text-dark") do %>
+                    <strong><h3><%= note.title %></h3></strong>
+                  <% end %>
+                </p>
+                <%= attachment_image_tag note.user, :profile_image, fallback: "no_image.jpg", style: "height: 30px; width:30px;", class:"rounded-circle"; %>
+                <span><strong><%=link_to note.user.name, user_path(note.user) %></strong></span>
+                <time><%= note.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+                <div>
+                  <%= link_to "#{note.comments.count} コメント | ", note_path(note.id), class:"text-dark" %>
+                  <% if note.favorited_by?(current_user) %>
+                    <span>
+                      <%= link_to note_favorites_path(note), method: :delete do %>
+                        <i class="fas fa-heart"></i><%= note.favorites.count %> いいね
+                      <% end %>
+                    </span>
+                    <% else %>
+                    <span>
+                      <%= link_to note_favorites_path(note), method: :post do %>
+                        <i class="far fa-heart"></i><%= note.favorites.count %> いいね
+                      <% end %>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to(note_path(note.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%= note.title %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-text">本文：<%= note.body %></p>
-          <span><i class="fas fa-user"></i> By <%= note.user.name %> ｜ </span>
-          <span><%= link_to "#{note.comments.count} コメント", note_path(note.id), class:"text-dark" %></span>
-        </div>
+        </br>
       </div>
+    <% end %>
+    <div class="mx-auto">
+      <%= paginate notes %>
     </div>
   </div>
-  <% end %>
-  <%= paginate notes %>
 </div>
