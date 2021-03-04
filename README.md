@@ -1,24 +1,30 @@
-# README
+# Outputter概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## コンセプト
+- 誰でも気軽にアイデアや知識をアウトプットすることができるアプリ
 
-Things you may want to cover:
+## 制作のきっかけ
+- 情報過多な現代ではいくら調べてもインプットするだけで終わってしまうことが多い。
+- インプットしたことを自分なりのアイデアに発展させたい
 
-* Ruby version
+## 重視した点
 
-* System dependencies
 
-* Configuration
+## 技術内容
+- 言語:Ruby
+- 認証：Devise
+- フレームワーク:Ruby on Rails
+- DB:SQLite (開発環境), 未定(本番環境)
+- バージョン管理:Git
+- インフラ:未定
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 実装した機能等の概要
+- 記事一覧表示機能
+- 詳細表示機能
+- 記事投稿機能
+- ユーザー登録機能
+- ログイン機能
+- ユーザーフォロー機能
+- 画像ファイルのアップロード機能
+- ページネーション機能
+- 単体テスト、統合テスト(未実装)
