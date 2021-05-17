@@ -26,27 +26,29 @@
 - ページネーション機能
 - 単体テスト、統合テスト(未実装)
 
-## 各画面UI
+# 各画面UI
 
 
-- ログイン画面
+## ログイン画面
 
 ![ログイン画面](https://user-images.githubusercontent.com/62749663/118425960-4711cb00-b705-11eb-8c34-58228e3c912a.png)
 
 
-- トップページ1
+## トップページ1
 
 ![トップページ1](https://user-images.githubusercontent.com/62749663/118425947-3f522680-b705-11eb-86ae-ab44930b21e3.png)
 
 
-- トップページ2
+## トップページ2
 
 ![トップページ2](https://user-images.githubusercontent.com/62749663/118425976-50029c80-b705-11eb-975f-1e27d5a6d370.png)
 
 
-- プロフィール編集画面
+## プロフィール編集画面
 
 ![プロフィール編集画面](https://user-images.githubusercontent.com/62749663/118425967-4a0cbb80-b705-11eb-9eef-31787294390a.png)
 
-- 投稿画面
+
+## 投稿画面
+
 ![投稿画面](https://user-images.githubusercontent.com/62749663/118425970-4c6f1580-b705-11eb-90b6-9279b5243aff.png)
