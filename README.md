@@ -36,7 +36,7 @@
 
 ## トップページ1
 
-![トップページ1](https://user-images.githubusercontent.com/62749663/118425947-3f522680-b705-11eb-86ae-ab44930b21e3.png)
+![118425947-3f522680-b705-11eb-86ae-ab44930b21e3](https://user-images.githubusercontent.com/62749663/118617560-b79c1300-b7fd-11eb-9f6c-486294a28473.png)
 
 
 ## トップページ2
